@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head') %>
+    <title>Verify OTP</title> 
+</head>
+<body>
+    <%- include('./partials/nav') %>
+    <div class="container mt-4">
+        <form action="/mail/verifyotp" method="post"> 
+            <div class="mb-3">
+                <label for="otp" class="form-label">Enter the OTP:</label>
+                <input type="number" class="form-control" id="otp" name="otp" required>
+            </div>
+            <div class="mb-3">
+                <label for="newPassword" class="form-label">New Password:</label>
+                <input type="password" class="form-control" id="newPassword" name="newPassword" required>
+            </div>
+            <input type="hidden" name="email" value="<%= email %>"> 
+            <button type="submit" class="btn btn-primary">Verify and Reset Password</button>
+        </form>
+    </div>
+    <%- include('./partials/scripts') %>
+</body>
+</html>
